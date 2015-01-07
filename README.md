@@ -6,9 +6,9 @@ Done:
 * Add sets
 * Edit sets
 * Delete sets
+* Templating
 
 To do:
-* Templating
 * Separate files for routes, configuration
 * Using a database to save sets
 * AJAX instead of separate pages

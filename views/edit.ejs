@@ -1,22 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Edit Set</title>
-</head>
+<h1>Edit <%= set_name %>:</h1>
+<form id="edit_set" action="/sets" method="POST">
+	<input type="hidden" name="_method" value="PUT">
+	<input type="hidden" name="old_set_name" value=<%= set_name %>>
 
-<body>
-  <h1>Edit <%= set_name %>:</h1>
-  <form id="edit_set" action="/sets" method="POST">
-  	<input type="hidden" name="_method" value="PUT">
-  	<input type="hidden" name="old_set_name" value=<%= set_name %>>
+	<label>Name of set: </label>
+	<input type="text" name="new_set_name" value=<%= set_name %>><br><br>
 
-  	<label>Name of set: </label>
-  	<input type="text" name="new_set_name" value=<%= set_name %>><br><br>
+	<label>List of links: </label><br>
+	<textarea name="link_list" form="edit_set" cols="35" rows="5"><%= link_list %></textarea><br><br>
 
-  	<label>List of links: </label><br>
-  	<textarea name="link_list" form="edit_set" cols="35" rows="5"><%= link_list %></textarea><br><br>
-
-  	<input type="submit" value="Edit">
-  </form>
-</body>
-</html>
+	<input type="submit" value="Edit">
+</form>

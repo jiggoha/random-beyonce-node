@@ -1,7 +1,8 @@
 var express = require('express'),
 		bodyParser = require('body-parser'),
 		connect = require('connect'),
-		methodOverride = require('method-override'); // for PUT request with html form
+		methodOverride = require('method-override'), // for PUT request with html form
+		expressLayouts = require('express-ejs-layouts');
 
 var app = express();
 
@@ -18,22 +19,24 @@ app.use(methodOverride(function(req, res){
   }
 }));
 app.set('view engine', 'ejs');
+app.set('layout', 'layout'); //? myLayout
+app.use(expressLayouts);
 
 app.listen(3000, function() {
-	console.log('Listening on port 3000')
+	console.log('Listening on port 3000');
 })
 
 var sets = new Object();
 
 app.get('/', function(req, res) {
-	res.send('This is the root page.');
+	res.render('index', { layout: 'layout', title: 'Home'});
 })
 
 app.route('/sets')
 .get(function(req, res) {
 	set_names = Object.keys(sets);
 
-	res.render('sets', {sets: sets, set_names: set_names});
+	res.render('sets', { layout: 'layout', title: 'Your Sets', sets: sets, set_names: set_names });
 })
 .post(function(req, res) {
 	set_name = req.body.set_name;
@@ -62,7 +65,7 @@ app.route('/sets')
 })
 
 app.get('/sets/new', function(req, res) {
-	res.render('new');
+	res.render('new', { layout: 'layout', title: 'New Set' });
 })
 
 app.get('/sets/:name', function(req, res) {
@@ -70,7 +73,7 @@ app.get('/sets/:name', function(req, res) {
 
 	link_list = sets[set_name];
 	if (link_list) {
-		res.render('show', {set_name: set_name, link_list: link_list});
+		res.render('show', { layout: 'layout', title: set_name, set_name: set_name, link_list: link_list});
 	} else {
 		res.send("No set found.");
 	}
@@ -79,5 +82,5 @@ app.get('/sets/:name', function(req, res) {
 app.get('/sets/:name/edit', function(req, res) {
 	set_name = req.params.name;	
 	str_link_list = sets[set_name].join(", ");
-	res.render('edit', {set_name: set_name, link_list: str_link_list});
+	res.render('edit', { layout: 'layout', title: 'Edit Set', set_name: set_name, link_list: str_link_list});
 })
