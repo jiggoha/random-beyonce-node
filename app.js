@@ -32,7 +32,17 @@ app.route('/sets')
 	res.redirect('/sets');
 })
 
-
 app.get('/sets/new', function(req, res) {
 	res.render('new');
+})
+
+app.get('/sets/:name', function(req, res) {
+	set_name = req.params.name;
+
+	link_list = sets[set_name]
+	if (link_list) {
+		res.render('show', {set_name: set_name, link_list: link_list})
+	} else {
+		res.send("No set found.")
+	}
 })
