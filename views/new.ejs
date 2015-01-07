@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New Set</title>
+</head>
+
+<body>
+  <h1>Create a new set:</h1>
+  <form id="new_set" action="/sets" method="POST">
+  	<label>Name of set: </label>
+  	<input type="text" name="set_name"><br><br>
+
+  	<label>List of links: </label><br>
+  	<textarea name="link_list" form="new_set" cols="35" rows="5" placeholder="www.youtube.com/watch?v=e-ORhEE9VVg, www.youtube.com/watch?v=dQw4w9WgXcQ"></textarea><br><br>
+
+  	<input type="submit" value="Create">
+  </form>
+</body>
+</html>

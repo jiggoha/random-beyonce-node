@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Sets</title>
+</head>
+
+<body>
+  <h1>Your sets:</h1>
+  <% for (i = 0; i < set_names.length; i++) { %>
+  	<h2><%= set_names[i] %>:</h2>
+
+  	<% for (j = 0; j < sets[set_names[i]].length; j++) { %>
+  		<span><%= sets[set_names[i]][j] %></span><br>
+  	<% } %>  	
+
+
+  <% } %>
+  <p><p>
+</body>
+</html>
