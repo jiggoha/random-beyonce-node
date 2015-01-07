@@ -7,8 +7,8 @@ Done:
 * Edit sets
 * Delete sets
 * Templating
+* Separate files for routes, configuration
 
 To do:
-* Separate files for routes, configuration
 * Using a database to save sets
 * AJAX instead of separate pages
