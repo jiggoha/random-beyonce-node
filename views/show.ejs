@@ -9,5 +9,11 @@
   <% for (i = 0; i < link_list.length; i++) { %>
   	<span><%= link_list[i] %></span><br>
   <% } %>
+
+  <form id="delete_set" action="/sets" method="POST">
+  	<input type="hidden" name="_method" value="DELETE">
+  	<input type="hidden" name="set_name" value=<%= set_name%>>
+  	<input type="submit" value="Delete">
+  </form>
 </body>
 </html>

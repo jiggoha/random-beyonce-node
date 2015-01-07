@@ -5,9 +5,9 @@ Done:
 * View sets
 * Add sets
 * Edit sets
+* Delete sets
 
 To do:
-* Delete sets
 * Templating
 * Separate files for routes, configuration
 * Using a database to save sets

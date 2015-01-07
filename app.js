@@ -36,14 +36,12 @@ app.route('/sets')
 	res.render('sets', {sets: sets, set_names: set_names});
 })
 .post(function(req, res) {
-	console.log("got to post");
 	set_name = req.body.set_name;
 	link_list = req.body.link_list.split(", ");
 	sets[set_name] = link_list;
 	res.redirect('/sets');
 })
 .put(function(req, res) {
-	console.log("got to put");
 	console.log(req.body);
 	new_set_name = req.body.new_set_name;
 	old_set_name = req.body.old_set_name;
@@ -55,6 +53,12 @@ app.route('/sets')
 	sets[new_set_name] = link_list;
 
 	res.redirect('/sets/' + new_set_name);
+})
+.delete(function(req, res) {
+	set_name = req.body.set_name;
+	delete sets[set_name];
+
+	res.redirect('/sets');
 })
 
 app.get('/sets/new', function(req, res) {
