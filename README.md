@@ -8,7 +8,7 @@ Done:
 * Delete sets
 * Templating
 * Separate files for routes, configuration
-* Using a database to save sets
+* Using MongoDB to save sets
 
 To do:
 * AJAX instead of separate pages
