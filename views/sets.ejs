@@ -1,8 +1,6 @@
 <h1>Your sets:</h1>
-<% for (i = 0; i < set_names.length; i++) { %>
-	<h2><%= set_names[i] %>:</h2>
 
-	<% for (j = 0; j < sets[set_names[i]].length; j++) { %>
-		<span><%= sets[set_names[i]][j] %></span><br>
-	<% } %>
+<% for (i = 0; i < sets.length; i++) { %>
+	<h2><%= sets[i].set_name %>:</h2>
+	<p><%= sets[i].link_list.join(", ") %></p>
 <% } %>
