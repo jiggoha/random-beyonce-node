@@ -15,10 +15,15 @@ module.exports = exports = function(app, db) {
 		set_name = req.body.set_name;
 		link_list = req.body.link_list.split(", ");
 		sets[set_name] = link_list;
+
+		db.collection('sets').insert({ set_name: link_list }, function(err, data){
+				if(err) throw err;
+				console.log(data);
+			});
+
 		res.redirect('/sets');
 	})
 	.put(function(req, res) {
-		console.log(req.body);
 		new_set_name = req.body.new_set_name;
 		old_set_name = req.body.old_set_name;
 		link_list = req.body.link_list.split(", ");
