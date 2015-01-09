@@ -1,6 +1,14 @@
 <h1>Your sets:</h1>
 
 <% for (i = 0; i < sets.length; i++) { %>
-	<h2><%= sets[i].set_name %>:</h2>
-	<p><%= sets[i].link_list.join(", ") %></p>
+	<h2 id=<%= sets[i].set_name %>><%= sets[i].set_name %>:</h2>
+	<p style="display: none"><%= sets[i].link_list.join(", ") %></p>
 <% } %>
+
+<script>
+	$('h2').on('click', function() {
+		$.get('sets', function(response) {
+			$('p').toggle();
+		})
+	})
+</script>
